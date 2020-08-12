@@ -1,7 +1,9 @@
 package ru.netology.web;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.Keys;
+import ru.netology.util.ScreenShooterReportPortalExtension;
 
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.visible;
@@ -9,6 +11,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static ru.netology.web.DataGenerator.*;
 
+@ExtendWith({ScreenShooterReportPortalExtension.class})
 public class OrderCardWithFakerTest {
 
     private String city = getCity();
@@ -41,8 +44,8 @@ public class OrderCardWithFakerTest {
         $("[data-test-id='agreement']").click();
         $$("button").find(exactText("Запланировать")).click();
         $("[data-test-id='replan-notification'] button").click();
-        String getText = $("[data-test-id='success-notification'] div.notification__title").waitUntil(visible,1000).getText();
-        assertEquals("Успешно!", getText);
+        String getText = $("[data-test-id='success-notification'] div.notification__title").waitUntil(visible,500).getText();
+        assertEquals("Успешнbо!", getText);
     }
 
     @Test

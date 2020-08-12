@@ -35,5 +35,6 @@ test {
     testLogging.showStandardStreams = true
     useJUnitPlatform()
     systemProperty 'selenide.headless', System.getProperty('selenide.headless')
+//    systemProperty 'selenide.browser', 'firefox'
     systemProperty 'junit.jupiter.extensions.autodetection.enabled', true
 }
